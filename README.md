@@ -1,5 +1,5 @@
 <h1>🔨 Keypress Overlay</h1>
-A simple keypress overlay you can use for streaming.
+A simple keypress overlay you can use for streaming or content creating.
 
 <h2>Project Status</h2>
 
