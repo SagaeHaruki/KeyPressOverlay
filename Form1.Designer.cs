@@ -34,23 +34,26 @@
             // lblTxt
             // 
             this.lblTxt.AutoSize = true;
-            this.lblTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTxt.Font = new System.Drawing.Font("Century Gothic", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTxt.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTxt.Location = new System.Drawing.Point(12, 9);
+            this.lblTxt.Location = new System.Drawing.Point(14, 11);
+            this.lblTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTxt.Name = "lblTxt";
-            this.lblTxt.Size = new System.Drawing.Size(21, 29);
+            this.lblTxt.Size = new System.Drawing.Size(20, 27);
             this.lblTxt.TabIndex = 0;
             this.lblTxt.Text = "-";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1084, 49);
+            this.ClientSize = new System.Drawing.Size(704, 91);
             this.Controls.Add(this.lblTxt);
+            this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Key Inputs";
             this.ResumeLayout(false);
             this.PerformLayout();
 

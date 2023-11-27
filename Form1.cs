@@ -70,7 +70,11 @@ namespace textnet
         private IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
             int textNum = lblTxt.Text.Length;
-            if (textNum >= 75)
+            if (textNum == 50)
+            {
+                lblTxt.Text += Environment.NewLine;
+            }
+            else if (textNum >= 100)
             {
                 lblTxt.Text = "";
             }
@@ -78,182 +82,61 @@ namespace textnet
             {
                 int vkCode = Marshal.ReadInt32(lParam);
                 Keys key = (Keys)vkCode;
-                if (key.ToString() == "LControlKey" || key.ToString() == "RControlKey")
+                Dictionary<string, string> keyMappings = new Dictionary<string, string>
                 {
-                    lblTxt.Text += "[︽]";
-                }
-                else if (key.ToString() == "LShiftKey" || key.ToString() == "RShiftKey")
-                {
-                    lblTxt.Text += "[⇧]";
-                }
-                else if(key.ToString() == "LWin" || key.ToString() == "RWin")
-                {
-                    lblTxt.Text += "[⌘]";
-                }
+                    {"LControlKey", "︽"},
+                    {"RControlKey", "︽"},
+                    {"LShiftKey", "⇧"},
+                    {"RShiftKey", "⇧"},
+                    {"LWin", "⌘"},
+                    {"RWin", "⌘"},
+                    {"Back", "⌫"},
+                    {"Apps", "❆"},
+                    {"Return", "➠"},
+                    {"Oem1", ";"},
+                    {"Oem5", "\\"},
+                    {"Oem6", "]"},
+                    {"Oem7", "'"},
+                    {"OemOpenBrackets", "["},
+                    {"OemQuestion", "/"},
+                    {"Oemcomma", ","},
+                    {"Oemtilde", "`"},
+                    {"OemPeriod", "."},
+                    {"OemMinus", "-"},
+                    {"Oemplus", "+"},
+                    {"Capital", "[Caps]"},
+                    {"Tab", "[⇄]"},
+                    {"Win", "[⇄]"},
+                    {"Escape", "[Esc]"},
+                    {"PrintScreen", "[PrtSc]"},
+                    {"Scroll", "[Scrl]"},
+                    {"Insert", "[Ins]"},
+                    {"Home", "🏚"},
+                    {"Pause", "⏸"},
+                    {"PageUp", "[PgUp]"},
+                    {"Delete", "[Del]"},
+                    {"Next", "[PgDn]"},
+                    {"End", "[⌀]"},
+                    {"Up", "⇧"},
+                    {"Right", "⇨"},
+                    {"Down", "⇩"},
+                    {"Left", "⇦"},
+                    {"Space", "_"},
+                // Add more keys and their mappings here
+                };
 
-                else if(key.ToString() == "Back")
+                string keyString = key.ToString();
+                if (keyMappings.ContainsKey(keyString))
                 {
-                    lblTxt.Text += "[⌫]";
+                    lblTxt.Text += keyMappings[keyString];
                 }
-                else if(key.ToString() == "Return")
+                else if (keyString.Length == 2 && keyString[0] == 'D' && char.IsDigit(keyString[1]))
                 {
-                    lblTxt.Text += "[➠]";
-                }
-                else if(key.ToString() == "Oem1")
-                {
-                    lblTxt.Text += ";";
-                }
-                else if(key.ToString() == "Oem5")
-                {
-                    lblTxt.Text += "\\";
-                }
-                else if(key.ToString() == "Oem6")
-                {
-                    lblTxt.Text += "]";
-                }
-                else if(key.ToString() == "Oem7")
-                {
-                    lblTxt.Text += "'";
-                }
-                else if(key.ToString() == "OemOpenBrackets")
-                {
-                    lblTxt.Text += "[";
-                }
-                else if(key.ToString() == "OemQuestion")
-                {
-                    lblTxt.Text += "/";
-                }
-                else if(key.ToString() == "Oemcomma")
-                {
-                    lblTxt.Text += ",";
-                }
-                else if(key.ToString() == "Oemtilde")
-                {
-                    lblTxt.Text += "`";
-                }
-                else if(key.ToString() == "Oemperiod")
-                {
-                    lblTxt.Text += ".";
-                }
-                else if(key.ToString() == "OemMinus")
-                {
-                    lblTxt.Text += "-";
-                }
-                else if(key.ToString() == "Oemplus")
-                {
-                    lblTxt.Text += "+";
-                }
-                else if(key.ToString() == "Capital")
-                {
-                    lblTxt.Text += "[Caps]";
-                }
-                else if(key.ToString() == "Tab")
-                {
-                    lblTxt.Text += "[⇄]";
-                }
-                else if(key.ToString() == "Win")
-                {
-                    lblTxt.Text += "[⇄]";
-                }
-                else if(key.ToString() == "Escape")
-                {
-                    lblTxt.Text += "[Esc]";
-                }
-                else if(key.ToString() == "PrintScreen")
-                {
-                    lblTxt.Text += "[PrtSc]";
-                }
-                else if(key.ToString() == "Scroll")
-                {
-                    lblTxt.Text += "[Scrl]";
-                }
-                else if(key.ToString() == "Insert")
-                {
-                    lblTxt.Text += "⏸";
-                }
-                else if(key.ToString() == "Home")
-                {
-                    lblTxt.Text += "[🏚]";
-                }
-                else if(key.ToString() == "PageUp")
-                {
-                    lblTxt.Text += "[PgUp]";
-                }
-                else if(key.ToString() == "Delete")
-                {
-                    lblTxt.Text += "[Del]";
-                }
-                else if(key.ToString() == "Next")
-                {
-                    lblTxt.Text += "[PgDn]";
-                }
-                else if(key.ToString() == "End")
-                {
-                    lblTxt.Text += "[⌀]";
-                }
-                else if (key.ToString() == "Up")
-                {
-                    lblTxt.Text += "⇧";
-                }
-                else if (key.ToString() == "Right")
-                {
-                    lblTxt.Text += "⇨";
-                }
-                else if (key.ToString() == "Down")
-                {
-                    lblTxt.Text += "⇩";
-                }
-                else if (key.ToString() == "Left")
-                {
-                    lblTxt.Text += "⇦";
-                }
-                else if (key.ToString() == "D0")
-                {
-                    lblTxt.Text += "0";
-                }
-                else if (key.ToString() == "D1")
-                {
-                    lblTxt.Text += "1";
-                }
-                else if (key.ToString() == "D2")
-                {
-                    lblTxt.Text += "2";
-                }
-                else if (key.ToString() == "D3")
-                {
-                    lblTxt.Text += "3";
-                }
-                else if (key.ToString() == "D4")
-                {
-                    lblTxt.Text += "4";
-                }
-                else if (key.ToString() == "D5")
-                {
-                    lblTxt.Text += "5";
-                }
-                else if (key.ToString() == "D6")
-                {
-                    lblTxt.Text += "6";
-                }
-                else if (key.ToString() == "D7")
-                {
-                    lblTxt.Text += "7";
-                }
-                else if (key.ToString() == "D8")
-                {
-                    lblTxt.Text += "8";
-                }
-                else if (key.ToString() == "D9")
-                {
-                    lblTxt.Text += "9";
-                }
-                else if (key.ToString() == "Space")
-                {
-                    lblTxt.Text += "[_]";
+                    lblTxt.Text += keyString[1];
                 }
                 else
                 {
-                    lblTxt.Text += key.ToString().ToLower();
+                    lblTxt.Text += keyString.ToLower();
                 }
                 stopwatch.Restart();
             }
