@@ -8,6 +8,7 @@ A simple keypress overlay you can use for streaming or content creating.
 - Customized output for some keypress (Ex. Home will show as [Home]).
 - Add a config file to further customized every key.
 - Clean the code (Kinda Dirty right now, too many if else).
+- Code Clearance [Nov. 27, 2023]
 
 <h2>Note</h2>
 
