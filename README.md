@@ -9,6 +9,9 @@ A simple keypress overlay you can use for streaming or content creating.
 - Add a config file to further customized every key.
 - Clean the code (Kinda Dirty right now, too many if else).
 - Code Clearance [Nov. 27, 2023]
+- Maximum Character is now changed to 100
+- 2nd line is added after 50 characters
+- Smaller GUI
 
 <h2>Note</h2>
 
